@@ -12,7 +12,9 @@ try {
   mongoose
     .connect(DB, {
       useNewUrlParser: true,
-      useUnifiedTopology: true,
+  useUnifiedTopology: true,
+  ssl: true,
+  tlsAllowInvalidCertificates: true
     })
     .then(() => console.log("DB connection successful!"));
 } catch (error) {
