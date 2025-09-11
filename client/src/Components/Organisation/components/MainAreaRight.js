@@ -25,7 +25,7 @@ function MainAreaRight({
     if (title !== "Welcome to Social Space") {
       axios
         .get(
-          `http://localhost:5000/organisation/${organisationName}/channel/${title}`
+          `https://social-nexus-hub.onrender.com/organisation/${organisationName}/channel/${title}`
         )
         .then((response) => {
           setMessageList(response.data.channel.messages);

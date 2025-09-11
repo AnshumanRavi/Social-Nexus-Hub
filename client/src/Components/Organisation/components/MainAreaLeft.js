@@ -9,7 +9,7 @@ function MainAreaLeft({ title, setTitle, organisationData, organisationName }) {
   const [orgDrop, setOrgDrop] = useState(false);
   const [organisations, setOrganisations] = useState("");
   useEffect(() => {
-    axios.get("http://localhost:5000/organisations").then((response) => {
+    axios.get("https://social-nexus-hub.onrender.com/organisations").then((response) => {
       console.log(response.data);
       setOrganisations(response.data);
     });

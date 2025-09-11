@@ -15,14 +15,14 @@ function Dms_ChatsList({ setActiveDM, username }) {
   const [dmList, setDmList] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/notification").then((response) => {
+    axios.get("https://social-nexus-hub.onrender.com/notification").then((response) => {
       // console.log(response.data);
       setNotificationData(response.data);
     });
   }, []);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/viewProfile").then((response) => {
+    axios.get("https://social-nexus-hub.onrender.com/viewProfile").then((response) => {
       console.log(response.data);
       setUsers(response.data.data.friends);
     });
@@ -39,7 +39,7 @@ function Dms_ChatsList({ setActiveDM, username }) {
   }
 
   useEffect(() => {
-    axios.get("http://localhost:5000/dm").then((response) => {
+    axios.get("https://social-nexus-hub.onrender.com/dm").then((response) => {
       console.log(response.data);
       setDmList(response.data);
     });

@@ -27,7 +27,7 @@ function CreateOrganisation() {
 
   useEffect(() => {
     if (orgName !== "") {
-      axios.get(`http://localhost:5000/organisation/${orgName}`).then((response) => {
+      axios.get(`https://social-nexus-hub.onrender.com/${orgName}`).then((response) => {
         const arr = response.data.members.map((member) => member.username).sort();
 
         const userArr = arr.filter((member) => member !== response.data.currentUser.username);
@@ -61,7 +61,7 @@ function CreateOrganisation() {
       members: rightArr,
     };
 
-    axios.post("http://localhost:5000/CreateChannel", data).then((response) => {
+    axios.post("https://social-nexus-hub.onrender.com/CreateChannel", data).then((response) => {
       console.log(response.data);
       if (response.data.status === "success") {
         navigate(`/organisation/${orgName}`);

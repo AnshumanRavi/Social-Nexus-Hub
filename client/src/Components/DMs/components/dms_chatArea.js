@@ -16,7 +16,7 @@ function Dms_chatArea({ activeDM, username }) {
 
   useEffect(() => {
     if (activeDM !== "") {
-      axios.get(`http://localhost:5000/user/${activeDM}`).then((response) => {
+      axios.get(`https://social-nexus-hub.onrender.com/user/${activeDM}`).then((response) => {
         // console.log(response.data);
         // setUsername(response.data.currentUser);
         // console.log(response.data.currentUser);
