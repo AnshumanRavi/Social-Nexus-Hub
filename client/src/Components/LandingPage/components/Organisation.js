@@ -18,7 +18,7 @@ function OrganisationsList({ title, setTitle, setindex }) {
   const [organisations, setOrganisations] = useState([]);
 
   useEffect(() => {
-    axios.get("https://social-nexus-hub.onrender.com/organisations").then((response) => {
+    axios.get("http://localhost:5000/organisations").then((response) => {
       console.log(response.data);
       setOrganisations(response.data);
     });

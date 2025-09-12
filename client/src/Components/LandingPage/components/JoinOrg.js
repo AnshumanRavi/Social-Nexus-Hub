@@ -6,7 +6,7 @@ function JoinOrg({ setjoinbox }) {
   const [code, setCode] = useState("");
 
   function handleCode() {
-    axios.post("https://social-nexus-hub.onrender.com/joinOrganisation", { code }).then((response) => {
+    axios.post("http://localhost:5000/joinOrganisation", { code }).then((response) => {
       console.log(response);
       if (response.data.status === "success") {
         setjoinbox((old) => !old);

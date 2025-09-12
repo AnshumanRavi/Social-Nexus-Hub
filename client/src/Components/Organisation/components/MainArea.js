@@ -16,7 +16,7 @@ function MainArea({ organisationName }) {
     if (organisationName !== "") {
       console.log(organisationName);
       axios
-        .get(`https://social-nexus-hub.onrender.com/organisation/${organisationName}`)
+        .get(`http://localhost:5000/organisation/${organisationName}`)
         .then((response) => {
           setOrganisationData(response.data);
         })
@@ -28,7 +28,7 @@ function MainArea({ organisationName }) {
     if (organisationData) {
       console.log(organisationData);
       organisationData.channels.map((channel) => {
-        axios.get(`https://social-nexus-hub.onrender.com/organisation/${organisationName}/channel/${channel}`).then((response) => {
+        axios.get(`http://localhost:5000/organisation/${organisationName}/channel/${channel}`).then((response) => {
           setChannelData((list) => [...list, response.data.channel]);
           setUsername(response.data.currentUser.username);
         });

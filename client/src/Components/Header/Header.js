@@ -17,7 +17,7 @@ function Header({ setShowNotiList, showNotiList }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("https://social-nexus-hub.onrender.com/users").then((response) => {
+    axios.get("http://localhost:5000/users").then((response) => {
       const userArr = response.data.userArr.map((user) => user.username).sort();
 
       setUsers(userArr.filter((username) => username !== response.data.currentUser.username));
@@ -25,7 +25,7 @@ function Header({ setShowNotiList, showNotiList }) {
   }, []);
 
   useEffect(() => {
-    axios.get("https://social-nexus-hub.onrender.com/notification").then((response) => {
+    axios.get("http://localhost:5000/notification").then((response) => {
       console.log(response.data);
       setNotificationData(response.data);
     });
@@ -44,7 +44,7 @@ function Header({ setShowNotiList, showNotiList }) {
   function handleAccept(notification) {
     if (notification.isFriendRequest) {
       axios
-        .post("https://social-nexus-hub.onrender.com/addfriends", {
+        .post("http://localhost:5000/addfriends", {
           username: notification.friendOrOrgName,
         })
         .then((response) => {
@@ -58,7 +58,7 @@ function Header({ setShowNotiList, showNotiList }) {
         code: notification.orgCode,
       };
 
-      axios.post("https://social-nexus-hub.onrender.com/joinOrganisation", data).then((response) => {
+      axios.post("http://localhost:5000/joinOrganisation", data).then((response) => {
         console.log(response);
       });
 
@@ -69,7 +69,7 @@ function Header({ setShowNotiList, showNotiList }) {
   function handleReject(notification) {
     const { friendOrOrgName, orgCode } = notification;
     axios
-      .post("https://social-nexus-hub.onrender.com/deleteNotification", {
+      .post("http://localhost:5000/deleteNotification", {
         friendOrOrgName,
         orgCode,
       })

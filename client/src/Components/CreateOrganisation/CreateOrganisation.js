@@ -20,7 +20,7 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("https://social-nexus-hub.onrender.com/users").then((response) => {
+    axios.get("http://localhost:5000/users").then((response) => {
       console.log(response.data.userArr);
       const userArr = response.data.userArr.map((user) => user.username).sort();
 
@@ -54,7 +54,7 @@ function App() {
       memrole: rightArr,
     };
 
-    axios.post("https://social-nexus-hub.onrender.com/CreateOrganisation", data).then((response) => {
+    axios.post("http://localhost:5000/CreateOrganisation", data).then((response) => {
       console.log(response.data);
       if (response.data.status === "success") {
         navigate("/home");

@@ -13,7 +13,7 @@ function ViewProfile() {
   useEffect(() => {
     const username = params.username;
     if (username !== "")
-      axios.get(`https://social-nexus-hub.onrender.com/search/${username}`).then((response) => {
+      axios.get(`http://localhost:5000/search/${username}`).then((response) => {
         console.log(response.data.data);
         setUserData(response.data.data.user);
 
@@ -26,7 +26,7 @@ function ViewProfile() {
   }, [params]);
 
   function handleAddFriend(username) {
-    axios.post("https://social-nexus-hub.onrender.com/sendFriendRequest", { username }).then((response) => console.log(response),alert("Friend Request Sent"));
+    axios.post("http://localhost:5000/sendFriendRequest", { username }).then((response) => console.log(response),alert("Friend Request Sent"));
   }
 
   return (

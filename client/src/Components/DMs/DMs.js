@@ -12,7 +12,7 @@ function DMs({ setShowNotiList, showNotiList }) {
   const [username, setUsername] = useState("");
 
   useEffect(() => {
-    axios.get("https://social-nexus-hub.onrender.com/viewProfile").then((response) => {
+    axios.get("http://localhost:5000/viewProfile").then((response) => {
       // console.log(response.data);
       setUsername(response.data.data.username);
     });

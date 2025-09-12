@@ -22,7 +22,7 @@ function Signup() {
     ) {
       const objData = { username, email, password, passwordConfirm };
       axios
-        .post("https://social-nexus-hub.onrender.com/signup", objData)
+        .post("http://localhost:5000/signup", objData)
         .then((response) => {
           console.log(response);
 

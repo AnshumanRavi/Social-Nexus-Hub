@@ -8,7 +8,7 @@ function UpdateProfile() {
   const [enabledFields, setEnabledFields] = useState(false);
 
   useEffect(() => {
-    axios.get("https://social-nexus-hub.onrender.com/viewProfile").then((response) => {
+    axios.get("http://localhost:5000/viewProfile").then((response) => {
       setUserData(response.data.data);
       setUsername(response.data.data.username);
       setName(response.data.data.name);
@@ -39,7 +39,7 @@ function UpdateProfile() {
         dateofbirth: new Date(dob),
         workingstatus: workingStatus,
       };
-      axios.post("https://social-nexus-hub.onrender.com/updateMyProfile", data).then((response) => {
+      axios.post("http://localhost:5000/updateMyProfile", data).then((response) => {
         alert("Profile updated");
       });
     }
@@ -178,7 +178,7 @@ function LeftBox({ userData, setEnabledFields, enabledFields, handleUpdate }) {
   const navigate = useNavigate();
   function handleLogoutButton() {
     if (!enabledFields) {
-      axios.get("https://social-nexus-hub.onrender.com/logout").then((response) => {
+      axios.get("http://localhost:5000/logout").then((response) => {
         if (response.data.status === "success") {
           navigate("/login");
         }

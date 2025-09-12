@@ -17,7 +17,7 @@ function Login() {
     if (email !== "" && password !== "") {
       const objData = { email, password };
       axios
-        .post("https://social-nexus-hub.onrender.com/login", objData, {
+        .post("http://localhost:5000/login", objData, {
           withCredentials: true,
         })
         .then((response) => {
