@@ -36,7 +36,6 @@ router.post("/orgName/globalPost", authController.protect, globalPostController.
 // for testing purposes
 router.post("/sendMessage", dmController.sendMessage);
 
-// Akshat and Atish
 router.post("/CreateOrganisation", authController.protect, userController.CreateOrganisation); //done
 router.delete("/DeleteOrganisation", authController.protect, userController.DeleteOrganisation);
 router.post("/joinOrganisation", authController.protect, userController.JoinOrganisation); //done
